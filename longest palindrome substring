@@ -17,3 +17,20 @@ def pal(s):
     
 string='jdnjeoonoliabbbandnek'
 print(pal(string))
+
+
+
+def maxpalindrome(s):
+    if len(s) == 1 or s == '':
+        return str(len(s)) + "\n" + s
+    else:
+        if s == s[::-1]:
+            return str(len(s)) + "\n" + s
+        else:
+            for i in range(len(s)-1, 0, -1):
+                for j in range(len(s)-i+1):
+                    temp = s[j:j+i]
+                    if temp == temp[::-1]:
+                        return str(len(temp)) +"\n"+temp
+                        
+print(maxpalindrome("mdemfdeonppmmldkmwepppabbadbbs"))
