@@ -1,0 +1,19 @@
+def pal(s):
+    if len(s) <= 1:
+        return s
+    elif s[0] != s[-1]:
+        beg_pal = pal(s[:-1])
+        end_pal = pal(s[1:])
+        if len(beg_pal) >= len(end_pal):
+            return beg_pal
+        else:
+            return end_pal
+    else:
+        mid_pal = pal(s[1:-1])
+        if len(mid_pal) == len(s[1:-1]):
+            return s[0] + mid_pal + s[-1]
+        else:
+            return mid_pal
+    
+string='jdnjeoonoliabbbandnek'
+print(pal(string))
