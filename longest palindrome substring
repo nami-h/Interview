@@ -1,36 +1,9 @@
-def pal(s):
-    if len(s) <= 1:
-        return s
-    elif s[0] != s[-1]:
-        beg_pal = pal(s[:-1])
-        end_pal = pal(s[1:])
-        if len(beg_pal) >= len(end_pal):
-            return beg_pal
-        else:
-            return end_pal
-    else:
-        mid_pal = pal(s[1:-1])
-        if len(mid_pal) == len(s[1:-1]):
-            return s[0] + mid_pal + s[-1]
-        else:
-            return mid_pal
-    
-string='jdnjeoonoliabbbandnek'
-print(pal(string))
-
-
-
-def maxpalindrome(s):
-    if len(s) == 1 or s == '':
-        return str(len(s)) + "\n" + s
-    else:
-        if s == s[::-1]:
-            return str(len(s)) + "\n" + s
-        else:
-            for i in range(len(s)-1, 0, -1):
-                for j in range(len(s)-i+1):
-                    temp = s[j:j+i]
-                    if temp == temp[::-1]:
-                        return str(len(temp)) +"\n"+temp
-                        
-print(maxpalindrome("mdemfdeonppmmldkmwepppabbadbbs"))
+value ="Madamaaamadamaaaacdefgv"
+longestPalindrome =""
+lenght =0;
+for i in range(len(value)):
+        for j in range(0, i):
+            array = value[j:i + 1]
+            if (array == array[::-1] and len(longestPalindrome) < len(array)):
+                longestPalindrome =array
+print(longestPalindrome)
